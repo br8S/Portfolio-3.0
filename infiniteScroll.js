@@ -1,4 +1,18 @@
+var lastScrollTop = window.pageYOffset;
+var scrollingDown;
+
 window.addEventListener('scroll', () => {
+    var st = window.pageYOffset || document.documentElement.scrollTop; 
+    if (st > lastScrollTop){
+        scrollingDown = true;
+        console.log("scrolling down")
+    } 
+    if (st < lastScrollTop){
+        scrollingDown = false;
+        console.log("scrolling up")
+    }
+    lastScrollTop = st <= window.pageYOffset ? window.pageYOffset : st;
+    
     if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
         var content_clone = document.querySelector('.content').cloneNode(true);
         document.querySelector('.container').appendChild(content_clone);
@@ -9,7 +23,7 @@ window.addEventListener('scroll', () => {
             list_of_content[0].remove();
         }
     }
-    
+
     if(window.scrollY <= 1){
         var content_clone = document.querySelector('.content').cloneNode(true);
         document.querySelector('.content').before(content_clone);
@@ -24,16 +38,17 @@ window.addEventListener('scroll', () => {
 window.onload = pageScroll; 
 
 function pageScroll() {
-    window.scrollBy(0,1); // horizontal and vertical scroll increments
-    scrolldelay = setTimeout('pageScroll()',10); // scrolls every 100 milliseconds
+    if( scrollingDown === true ){
+        window.scrollBy(0,1); // scroll down 
+        scrolldelay = setTimeout('pageScroll()',10); // scrolls every 10 milliseconds
+    }
+    else{
+        window.scrollBy(0,-1); // scroll up
+        scrolldelay = setTimeout('pageScroll()',10);
+    }
+    // window.scrollBy(0,1); // horizontal and vertical scroll increments
+    // scrolldelay = setTimeout('pageScroll()',10); // scrolls every 100 milliseconds
 }
-
-/* CLONING ABOVE JUST NEED TO FIND CORRECT USE CASE
-
-var content_clone = document.querySelector('.content').cloneNode(true);
-document.querySelector('.content').before(content_clone);
-
-*/
 
 /* to delete extra clones 
 
