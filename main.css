@@ -8,6 +8,7 @@
 }
 
 body {
+    overflow: hidden;
     color: rgb(255, 254, 254);
     background-color: rgb(28, 28, 28);
     position: relative;
@@ -30,20 +31,20 @@ body {
     position: fixed;
     z-index: 3;
     left: 0;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .developer {
     position: fixed;
     z-index: 3;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .info {
     position: fixed;
     z-index: 3;
     right: 0;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .name{
@@ -56,47 +57,65 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 60rem;
+    pointer-events: none;
 }
 
 .content{
-    display: flex;
-    flex-direction: column;
+    padding: 1rem;
 }
 
 .cacti {
-    position: relative;
-    z-index: 0;
+    height: 40rem;
+    margin: 10rem 1rem;
 }
 
-.cacti > .bg-image {
+.cacti > a > .bg-image {
     position: relative;
     z-index: 0;
-    height: 30rem;
-    margin: 1rem;
+    height: 40rem;
     filter: grayscale(100);
+    left: 0;
 }
 
-.stussy > .bg-image {
+.stussy{
+    height: 28rem;
+    margin: 10rem 1rem;
+}
+
+.stussy > a > .bg-image {
     position: relative;
     z-index: 1;
-    height: 18rem;
+    height: 28rem;
     filter: grayscale(100);
-    margin: 1rem;
-    right: 0;
+    float: right;
 }
 
-.ballastpt > .bg-image {
+.ballastpt{
+    height: 30rem;
+    margin: 10rem 1rem;
+}
+
+.ballastpt > a > .bg-image {
     position: relative;
     z-index: 2;
-    height: 20rem;
+    height: 30rem;
     filter: grayscale(100);
-    margin: 1rem;
 }
 
-.br8s > .bg-image {
+.br8s{
+    height: 34rem;
+    margin: 10rem 1rem;
+}
+
+.br8s > a > .bg-image {
     position: relative;
     z-index: 1;
-    height: 24rem;
+    height: 34rem;
     filter: grayscale(100);
-    margin: 1rem;
+    float: right;
+}
+
+a .bg-image:hover {
+    filter: grayscale(0);
+    cursor: pointer;
 }
