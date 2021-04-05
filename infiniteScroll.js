@@ -1,5 +1,7 @@
 var lastScrollTop = pageYOffset;
 var scrollingDown = true;
+var initialWindowHeight;
+var pageHeight;
 
 window.addEventListener('scroll', () => {
     
@@ -24,23 +26,20 @@ window.addEventListener('scroll', () => {
     }
 
     var st = window.pageYOffset || document.documentElement.scrollTop; 
-    console.log(window.pageYOffset + " " + document.documentElement.scrollTop)
-    // if (st > lastScrollTop || (st === 7905 && lastScrollTop === 10848)){
-    //     scrollingDown = true;
-    //     console.log(st + " " + lastScrollTop + "scrolling down")
-    //     pageScroll;
-    // } 
+    //var maxWindowHeight = Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
 
-    if ((st < lastScrollTop && st != 7905) || (st === 2945 && (lastScrollTop === 2 || lastScrollTop === 2945))){
+    pageHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+    if ((st < lastScrollTop && lastScrollTop != pageHeight - 1) || (st === (initialWindowHeight + 1) && (lastScrollTop <= 2 || lastScrollTop === (initialWindowHeight + 1)))){
         scrollingDown = false;
-        console.log(st + " " + lastScrollTop + "scrolling up")
+        console.log(st + " " + lastScrollTop + "scrolling up ")
         pageScroll;
     }
 
     else{
         scrollingDown = true;
         console.log(st + " " + lastScrollTop + "scrolling down")
-         pageScroll;
+        pageScroll;
     }
 
     lastScrollTop = st <= pageYOffset ? pageYOffset : st; //study what this mean
@@ -49,6 +48,7 @@ window.addEventListener('scroll', () => {
 window.onload = pageScroll; 
 
 function pageScroll() {
+    //console.log(scrollingDown)
     if( scrollingDown === true ){
         window.scrollBy(0,1); // scroll down 
         scrolldelay = setTimeout('pageScroll()',10); // scrolls every 10 milliseconds
@@ -57,16 +57,8 @@ function pageScroll() {
         window.scrollBy(0,-1); // scroll up
         scrolldelay = setTimeout('pageScroll()',10);
     }
-    // window.scrollBy(0,1); // horizontal and vertical scroll increments
-    // scrolldelay = setTimeout('pageScroll()',10); // scrolls every 100 milliseconds
 }
 
-/* to delete extra clones 
-
-maybe if we clone as we go down every time we clone we delete first child
-
-if we go up every time we clone we delete last child
-
-maybe we can add more logic so that we need a minimum number of clones before we can even start deleting
-
-*/
+window.addEventListener('load', function() {
+    initialWindowHeight = Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
+},false);
