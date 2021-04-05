@@ -1,22 +1,11 @@
-var lastScrollTop = window.pageYOffset;
-var scrollingDown;
+var lastScrollTop = pageYOffset;
+var scrollingDown = true;
 
 window.addEventListener('scroll', () => {
-    var st = window.pageYOffset || document.documentElement.scrollTop; 
-    if (st > lastScrollTop){
-        scrollingDown = true;
-        console.log("scrolling down")
-    } 
-    if (st < lastScrollTop){
-        scrollingDown = false;
-        console.log("scrolling up")
-    }
-    lastScrollTop = st <= window.pageYOffset ? window.pageYOffset : st;
     
     if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
         var content_clone = document.querySelector('.content').cloneNode(true);
         document.querySelector('.container').appendChild(content_clone);
-        console.log(document.querySelectorAll('.content').length);
 
         if(document.querySelectorAll('.content').length >= 5){
             var list_of_content = document.querySelectorAll('.content');
@@ -33,6 +22,28 @@ window.addEventListener('scroll', () => {
             list_of_content[4].remove();
         }
     }
+
+    var st = window.pageYOffset || document.documentElement.scrollTop; 
+    console.log(window.pageYOffset + " " + document.documentElement.scrollTop)
+    // if (st > lastScrollTop || (st === 7905 && lastScrollTop === 10848)){
+    //     scrollingDown = true;
+    //     console.log(st + " " + lastScrollTop + "scrolling down")
+    //     pageScroll;
+    // } 
+
+    if ((st < lastScrollTop && st != 7905) || (st === 2945 && (lastScrollTop === 2 || lastScrollTop === 2945))){
+        scrollingDown = false;
+        console.log(st + " " + lastScrollTop + "scrolling up")
+        pageScroll;
+    }
+
+    else{
+        scrollingDown = true;
+        console.log(st + " " + lastScrollTop + "scrolling down")
+         pageScroll;
+    }
+
+    lastScrollTop = st <= pageYOffset ? pageYOffset : st; //study what this mean
 })
 
 window.onload = pageScroll; 
