@@ -14,7 +14,7 @@ body {
 
 .container {
     z-index: 3;
-    height: 200vh;
+    /* height: 200vh; */
     width: 100%;
     position: relative;
 }
@@ -227,9 +227,11 @@ a {
 @media screen and (max-width: 980px){
 
     .nav-bar {
-        height: 6rem;
+        height: 7vh;
         width: 100%;
         background-color: rgb(28, 28, 28);
+        position: fixed;
+        z-index: 3;
     }
 
     .name {
