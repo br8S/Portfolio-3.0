@@ -33,13 +33,11 @@ window.addEventListener('scroll', () => {
     if ((st < lastScrollTop && lastScrollTop != pageHeight - 1) || (st === (initialWindowHeight + 1) && (lastScrollTop <= 2 || lastScrollTop === (initialWindowHeight + 1)))){
         scrollingDown = false;
         console.log(st + " " + lastScrollTop + "scrolling up ")
-        pageScroll;
     }
 
     else{
         scrollingDown = true;
         console.log(st + " " + lastScrollTop + "scrolling down")
-        pageScroll;
     }
 
     lastScrollTop = st <= pageYOffset ? pageYOffset : st; //study what this mean
@@ -49,13 +47,15 @@ window.onload = pageScroll;
 
 function pageScroll() {
     //console.log(scrollingDown)
-    if( scrollingDown === true ){
-        window.scrollBy(0,1); // scroll down 
-        scrolldelay = setTimeout('pageScroll()',10); // scrolls every 10 milliseconds
-    }
-    else{
-        window.scrollBy(0,-1); // scroll up
-        scrolldelay = setTimeout('pageScroll()',10);
+    if( window.innerWidth >= 980) {
+        if( scrollingDown === true ){
+            window.scrollBy(0,1); // scroll down 
+            scrolldelay = setTimeout('pageScroll()',10); // scrolls every 10 milliseconds
+        }
+        else{
+            window.scrollBy(0,-1); // scroll up
+            scrolldelay = setTimeout('pageScroll()',10);
+        }
     }
 }
 
