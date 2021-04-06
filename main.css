@@ -2,9 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: monospace;
 }
 
 body {
+    width: 100%;
     color: rgb(255, 254, 254);
     background-color: rgb(28, 28, 28);
     position: relative;
@@ -18,7 +20,7 @@ body {
 }
 
 .nav-bar {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: monospace;
     display: flex;
     justify-content: center;
 }
@@ -57,76 +59,133 @@ body {
 }
 
 .content{
+    position: relative;
+    z-index: 2;
     padding: 1rem;
+    width: 100%;
+}
+
+.cacti-container {
+    height: 36rem;
+    width: 100%;
+    margin: 10rem 0;
+    padding: 0 4rem;
 }
 
 .cacti {
     height: 36rem;
-    margin: 10rem 3rem;
-}
-
-.cacti > a > .bg-image {
-    position: relative;
-    z-index: 0;
-    height: 36rem;
-    filter: grayscale(100);
-    left: 0;
-}
-
-.stussy{
+    width: 64rem;
+    background-image: url('images/cacti.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 26rem;
-    margin: 10rem 3rem;
-}
-
-.smile{
-    height: 8rem;
-    margin: 9rem;
-}
-
-.stussy > a > .bg-image {
-    position: relative;
-    z-index: 1;
-    height: 26rem;
     filter: grayscale(100);
-    float: right;
-}
-
-.ballastpt{
-    height: 33rem;
-    margin: 10rem 3rem;
-}
-
-.ballastpt > a > .bg-image {
-    position: relative;
-    z-index: 2;
-    height: 33rem;
-    filter: grayscale(100);
-}
-
-.br8s{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 24rem;
-    margin: 10rem 3rem;
-}
-
-.br8s > a > .bg-image {
-    position: relative;
-    z-index: 1;
-    height: 24rem;
-    filter: grayscale(100);
-    float: right;
-}
-
-a .bg-image:hover {
-    filter: grayscale(0);
+    transition: filter ease 1s;
     cursor: pointer;
+}
+
+.cacti:hover {
+    filter: grayscale(0);
+}
+
+.cacti:hover > .heading {
+    opacity: 1;
+}
+
+.stussy-container {
+    height: 26rem;
+    width: 100%;
+    margin: 10rem 0;
+    padding: 0 4rem;
+}
+
+.stussy {
+    height: 26rem;
+    width: 46rem;
+    background-image: url('images/stussy.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(100);
+    transition: filter ease 1s;
+    cursor: pointer;
+    float: right;
+}
+
+.stussy:hover {
+    filter: grayscale(0);
+}
+
+.stussy:hover > .heading {
+    opacity: 1;
+}
+
+.ballastpt-container {
+    height: 33rem;
+    width: 100%;
+    margin: 10rem 0;
+    padding: 0 4rem;
+}
+
+.ballastpt {
+    height: 33rem;
+    width: 58rem;
+    background-image: url('images/ballastpt.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(100);
+    transition: filter ease 1s;
+    cursor: pointer;
+}
+
+.ballastpt:hover {
+    filter: grayscale(0);
+}
+
+.ballastpt:hover > .heading {
+    opacity: 1;
+}
+
+.br8s-container {
+    height: 24rem;
+    width: 100%;
+    margin: 10rem 0;
+    padding: 0 4rem;
+}
+
+.br8s {
+    height: 24rem;
+    width: 43rem;
+    background-image: url('images/br8s.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(100);
+    transition: filter ease 1s;
+    cursor: pointer;
+    float: right;
+}
+
+.br8s:hover {
+    filter: grayscale(0);
+}
+
+.br8s:hover > .heading {
+    opacity: 1;
+}
+
+.heading {
+    opacity: 0;
+    transition: opacity ease 1s;
 }
 
 ::-webkit-scrollbar {
