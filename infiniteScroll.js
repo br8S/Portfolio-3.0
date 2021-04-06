@@ -3,46 +3,6 @@ var scrollingDown = true;
 var initialWindowHeight;
 var pageHeight;
 
-window.addEventListener('scroll', () => {
-    
-    if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
-        var content_clone = document.querySelector('.content').cloneNode(true);
-        document.querySelector('.container').appendChild(content_clone);
-
-        if(document.querySelectorAll('.content').length >= 5){
-            var list_of_content = document.querySelectorAll('.content');
-            list_of_content[0].remove();
-        }
-    }
-
-    if(window.scrollY <= 1){
-        var content_clone = document.querySelector('.content').cloneNode(true);
-        document.querySelector('.content').before(content_clone);
-
-        if(document.querySelectorAll('.content').length >= 5){
-            var list_of_content = document.querySelectorAll('.content');
-            list_of_content[4].remove();
-        }
-    }
-
-    var st = window.pageYOffset || document.documentElement.scrollTop; 
-    //var maxWindowHeight = Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
-
-    pageHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-    if ((st < lastScrollTop && lastScrollTop != pageHeight - 1) || (st === (initialWindowHeight + 1) && (lastScrollTop <= 2 || lastScrollTop === (initialWindowHeight + 1)))){
-        scrollingDown = false;
-        console.log(st + " " + lastScrollTop + "scrolling up ")
-    }
-
-    else{
-        scrollingDown = true;
-        console.log(st + " " + lastScrollTop + "scrolling down")
-    }
-
-    lastScrollTop = st <= pageYOffset ? pageYOffset : st; //study what this mean
-})
-
 window.onload = pageScroll; 
 
 function pageScroll() {
@@ -62,3 +22,43 @@ function pageScroll() {
 window.addEventListener('load', function() {
     initialWindowHeight = Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
 },false);
+
+window.addEventListener('scroll', () => {
+    // when we reach bottom of page we want to clone page after to give illusion of infinite scroll down
+    if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
+        var content_clone = document.querySelector('.content').cloneNode(true);
+        document.querySelector('.container').appendChild(content_clone);
+
+        // makes sure we never exceed at most 4 clones of the page
+        if(document.querySelectorAll('.content').length >= 5){
+            var list_of_content = document.querySelectorAll('.content');
+            list_of_content[0].remove();
+        }
+    }
+
+    // when we reach top of page we want to clone page before to give illusion of infinite scroll up
+    if(window.scrollY <= 1){
+        var content_clone = document.querySelector('.content').cloneNode(true);
+        document.querySelector('.content').before(content_clone);
+
+        // makes sure we never exceed at most 4 clones of the page
+        if(document.querySelectorAll('.content').length >= 5){
+            var list_of_content = document.querySelectorAll('.content');
+            list_of_content[4].remove();
+        }
+    }
+
+    var st = window.pageYOffset || document.documentElement.scrollTop; // curr scroll value
+
+    pageHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight; 
+
+    // makes sure auto scroll continues to scroll when clones are made
+    if ((st < lastScrollTop && lastScrollTop != pageHeight - 1) || (st === (initialWindowHeight + 1) && (lastScrollTop <= 2 || lastScrollTop === (initialWindowHeight + 1)))){
+        scrollingDown = false;
+    }
+    else{
+        scrollingDown = true;
+    }
+
+    lastScrollTop = st <= pageYOffset ? pageYOffset : st;
+})

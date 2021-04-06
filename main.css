@@ -45,6 +45,11 @@ body {
     padding: 2rem 3rem;
 }
 
+.info:hover {
+    color: gainsboro;
+    text-decoration: line-through;
+}
+
 .name{
     position: fixed;
     z-index: 3;
@@ -220,6 +225,13 @@ a {
 }
 
 @media screen and (max-width: 980px){
+
+    .nav-bar {
+        height: 6rem;
+        width: 100%;
+        background-color: rgb(28, 28, 28);
+    }
+
     .name {
         background-size: 37rem;
     }
@@ -241,7 +253,7 @@ a {
 
     .mobile-heading{
         padding: 1rem 0 3rem 0;
-        display: flex;
+        display: block;
     }
 
     .cacti-container {
@@ -257,7 +269,7 @@ a {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: initial;
+        justify-content: flex-start;
     }
 
     .ballastpt-container {
@@ -277,25 +289,21 @@ a {
     }
 
     .cacti {
-        height: 50vh;
         width: 100%;
     }
 
     .stussy {
-        height: 50vh;
         width: 100%;
-        display: inline-block;
+        display: flex;
     }
 
     .ballastpt {
-        height: 50vh;
         width: 100%;
     }
 
     .br8s {
-        height: 50vh;
         width: 100%;
-        display: block;
+        display: flex;
     }
 
 }

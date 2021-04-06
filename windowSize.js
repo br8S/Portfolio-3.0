@@ -17,7 +17,7 @@ window.addEventListener('load', () => {
         document.querySelectorAll('.mobile-container').forEach( mobile => {
             mobile.style.height = window.innerWidth/1.77 + 48 + "px";
         })
-        
+
         document.querySelectorAll('.mobile').forEach( mobile => {
             mobile.style.height = window.innerWidth/1.77 + "px";
         })
