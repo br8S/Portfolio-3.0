@@ -1,38 +1,25 @@
 window.onresize = function (event) {
-    console.log(window.innerWidth)
-    //DESKTOP VIEW
+    //MOBILE VIEW
         if(window.innerWidth < 980){
-            document.querySelectorAll('.cacti-container').forEach( cacti => {
-                cacti.style.height = window.innerWidth/1.77 + "px";
+            document.querySelectorAll('.mobile-container').forEach( mobile => {
+                mobile.style.height = window.innerWidth/1.77 + 48 + "px";
             })
 
-            document.querySelectorAll('.cacti').forEach( cacti => {
-                cacti.style.height = window.innerWidth/1.77 + "px";
-            })
-
-            document.querySelectorAll('.stussy-container').forEach( stussy => {
-                stussy.style.height = window.innerWidth/1.77 + "px";
-            })
-
-            document.querySelectorAll('.stussy').forEach( stussy => {
-                stussy.style.height = window.innerWidth/1.77 + "px";
-            })
-
-            document.querySelectorAll('.ballastpt-container').forEach( ballast => {
-                ballast.style.height = window.innerWidth/1.77 + "px";
-            })
-
-            document.querySelectorAll('.ballastpt').forEach( ballast => {
-                ballast.style.height = window.innerWidth/1.77 + "px";
-            })
-
-            document.querySelectorAll('.br8s-container').forEach( br8s => {
-                br8s.style.height = window.innerWidth/1.77 + "px";
-            })
-
-            document.querySelectorAll('.br8s').forEach( br8s => {
-                br8s.style.height = window.innerWidth/1.77 + "px";
+            document.querySelectorAll('.mobile').forEach( mobile => {
+                mobile.style.height = window.innerWidth/1.77 + "px";
             })
         }
 }
+
+window.addEventListener('load', () => {
     //MOBILE VIEW
+    if(window.innerWidth < 980){
+        document.querySelectorAll('.mobile-container').forEach( mobile => {
+            mobile.style.height = window.innerWidth/1.77 + 48 + "px";
+        })
+        
+        document.querySelectorAll('.mobile').forEach( mobile => {
+            mobile.style.height = window.innerWidth/1.77 + "px";
+        })
+    }
+})

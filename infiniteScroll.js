@@ -46,7 +46,7 @@ window.addEventListener('scroll', () => {
 window.onload = pageScroll; 
 
 function pageScroll() {
-    //console.log(scrollingDown)
+    //DESKTOP INFINITE SCROLL
     if( window.innerWidth >= 980) {
         if( scrollingDown === true ){
             window.scrollBy(0,1); // scroll down 
