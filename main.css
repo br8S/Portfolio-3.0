@@ -239,6 +239,8 @@ a {
     }
 
     .content{
+        position: relative;
+        top: 7vh;
         display: flex;
         flex-direction: column;
         align-items: center;
