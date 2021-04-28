@@ -8,7 +8,7 @@
 body {
     width: 100%;
     color: rgb(255, 254, 254);
-    background-color: rgb(16, 16, 16);
+    background-color: rgb(9, 9, 9);
     position: relative;
 }
 
@@ -251,7 +251,7 @@ a {
     .nav-bar {
         height: 7vh;
         width: 100%;
-        background-color: rgb(28, 28, 28);
+        background-color: rgb(9, 9, 9);
         position: fixed;
         z-index: 3;
     }
