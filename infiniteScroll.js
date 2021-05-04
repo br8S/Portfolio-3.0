@@ -19,10 +19,10 @@ function pageScroll() {
         pageHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight; 
 
         // makes sure auto scroll continues to scroll when clones are made
-        console.log("st= " + st);
-        console.log("lst= " + lastScrollTop);
-        console.log("pageheight= " + pageHeight);
-        console.log("initialWindowHeight= " + initialWindowHeight);
+        // console.log("st= " + st);
+        // console.log("lst= " + lastScrollTop);
+        // console.log("pageheight= " + pageHeight);
+        // console.log("initialWindowHeight= " + initialWindowHeight);
 
         if ((st < lastScrollTop && lastScrollTop != pageHeight) || (st === (initialWindowHeight + 1) && (lastScrollTop <= 2 || lastScrollTop === (initialWindowHeight + 1)))){
             cloneContent();
@@ -40,6 +40,7 @@ function pageScroll() {
 }
 
 function cloneContent(){
+    console.log(window.ScrollY);
     if(Math.round(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight){
         var content_clone = document.querySelector('.content').cloneNode(true);
         document.querySelector('.container').appendChild(content_clone);
@@ -51,8 +52,10 @@ function cloneContent(){
         }
     }
 
+    //we got to find out what window.scrolly IS UNDEFINED???
     // when we reach top of page we want to clone page before to give illusion of infinite scroll up
     if(window.scrollY <= 1){
+        console.log("we get here")
         var content_clone = document.querySelector('.content').cloneNode(true);
         document.querySelector('.content').before(content_clone);
 
