@@ -232,6 +232,41 @@ a:hover {
     opacity: 1;
 }
 
+.sanchezwedding-container {
+    height: 36rem;
+    width: 100%;
+    margin: 10rem 0 0 0;
+    padding: 0 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.sanchezwedding {
+    height: 36rem;
+    width: 60rem;
+    background-image: url('images/waves.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(100);
+    transition: filter ease 1s;
+    cursor: pointer;
+    float: right;
+}
+
+.sanchezwedding:hover {
+    filter: grayscale(0);
+}
+
+.sanchezwedding:hover > .heading {
+    opacity: 1;
+}
+
 .heading {
     opacity: 0;
     transition: opacity ease 1s;
