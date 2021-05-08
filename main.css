@@ -349,6 +349,15 @@ a {
         justify-content: initial;
     }
 
+    .sanchezwedding-container {
+        margin: 0;
+        padding: 0 0.3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: initial;
+    }
+
     .cacti {
         width: 100%;
     }
@@ -363,6 +372,11 @@ a {
     }
 
     .br8s {
+        width: 100%;
+        display: flex;
+    }
+
+    .sanchezwedding {
         width: 100%;
         display: flex;
     }

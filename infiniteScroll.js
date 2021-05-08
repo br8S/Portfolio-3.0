@@ -1,3 +1,4 @@
+  
 var lastScrollTop = pageYOffset;
 var initialWindowHeight;
 var pageHeight;
@@ -69,28 +70,23 @@ function cloneContent(){
 
 /*
 window.addEventListener('scroll', () => {
-
     if( window.innerWidth >= 980) { //just checks if this is desktop view
         // when we reach bottom of page we want to clone page after to give illusion of infinite scroll down
         //console.log(window.scrollY + window.innerHeight + " >= " + document.documentElement.scrollHeight)
-
         if(Math.round(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight){
             console.log("we get here")
             var content_clone = document.querySelector('.content').cloneNode(true);
             document.querySelector('.container').appendChild(content_clone);
-
             // makes sure we never exceed at most 4 clones of the page
             if(document.querySelectorAll('.content').length >= 5){
                 var list_of_content = document.querySelectorAll('.content');
                 list_of_content[0].remove();
             }
         }
-
         // when we reach top of page we want to clone page before to give illusion of infinite scroll up
         if(window.scrollY <= 1){
             var content_clone = document.querySelector('.content').cloneNode(true);
             document.querySelector('.content').before(content_clone);
-
             // makes sure we never exceed at most 4 clones of the page
             if(document.querySelectorAll('.content').length >= 5){
                 var list_of_content = document.querySelectorAll('.content');

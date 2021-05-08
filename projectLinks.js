@@ -18,4 +18,9 @@ window.addEventListener('load', function() {
         console.log("clicked")
         location.href = 'https://br8s-threejs.herokuapp.com/';
     })
+
+    document.querySelector(".sanchezwedding").addEventListener('click', () => {
+        console.log("clicked")
+        location.href = 'https://sanchezryndwedding.com/';
+    })
 },false);
