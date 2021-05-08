@@ -1,4 +1,3 @@
-  
 var lastScrollTop = pageYOffset;
 var initialWindowHeight;
 var pageHeight;
@@ -31,7 +30,6 @@ function pageScroll() {
             scrolldelay = setTimeout('pageScroll()', 13);
         }
         else{
-            console.log("scrolling down")
             cloneContent();
             window.scrollBy(0,1); // scroll down
             scrolldelay = setTimeout('pageScroll()', 13);
