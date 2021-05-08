@@ -30,6 +30,7 @@ function pageScroll() {
             scrolldelay = setTimeout('pageScroll()', 13);
         }
         else{
+            console.log("scrolling down")
             cloneContent();
             window.scrollBy(0,1); // scroll down
             scrolldelay = setTimeout('pageScroll()', 13);
@@ -40,8 +41,7 @@ function pageScroll() {
 }
 
 function cloneContent(){
-    console.log(window.ScrollY);
-    if(Math.round(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight){
+    if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
         var content_clone = document.querySelector('.content').cloneNode(true);
         document.querySelector('.container').appendChild(content_clone);
 
@@ -55,7 +55,6 @@ function cloneContent(){
     //we got to find out what window.scrolly IS UNDEFINED???
     // when we reach top of page we want to clone page before to give illusion of infinite scroll up
     if(window.scrollY <= 1){
-        console.log("we get here")
         var content_clone = document.querySelector('.content').cloneNode(true);
         document.querySelector('.content').before(content_clone);
 
