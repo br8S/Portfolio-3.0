@@ -145,10 +145,6 @@ a:hover {
     width: 100%;
     margin: 10rem 0;
     padding: 0 4rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .smiley{
@@ -215,10 +211,6 @@ a:hover {
     width: 100%;
     margin: 10rem 0 0 0;
     padding: 0 4rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .br8s {
@@ -251,8 +243,6 @@ a:hover {
     margin: 10rem 0 0 0;
     padding: 0 4rem;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
 }
 
@@ -269,7 +259,6 @@ a:hover {
     filter: grayscale(100);
     transition: filter ease 1s;
     cursor: pointer;
-    float: right;
 }
 
 .sanchezwedding:hover {
@@ -317,10 +306,6 @@ a {
         justify-content: center;
     }
 
-    .smiley {
-        display: none;
-    }
-
     .heading {
         display: none;
     }
@@ -342,8 +327,6 @@ a {
         padding: 0 0.3rem;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
     }
 
     .ballastpt-container {
@@ -358,8 +341,6 @@ a {
         padding: 0 0.3rem;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: initial;
     }
 
     .sanchezwedding-container {
@@ -367,8 +348,6 @@ a {
         padding: 0 0.3rem;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: initial;
     }
 
     .cacti {
@@ -391,7 +370,6 @@ a {
 
     .sanchezwedding {
         width: 100%;
-        display: flex;
     }
 
 }
