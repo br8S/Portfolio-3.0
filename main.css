@@ -284,6 +284,9 @@ a {
 }
 
 @media screen and (max-width: 980px){
+    .foot-bar {
+        display: none;
+    }
 
     .nav-bar {
         height: 7vh;
